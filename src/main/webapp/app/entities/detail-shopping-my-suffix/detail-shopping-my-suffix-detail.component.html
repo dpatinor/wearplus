@@ -1,0 +1,42 @@
+
+<div *ngIf="detailShopping">
+    <h2><span>Detail Shopping</span> {{detailShopping.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="row-md jh-entity-details">
+        <dt><span>Quantity</span></dt>
+        <dd>
+            <span>{{detailShopping.quantity}}</span>
+        </dd>
+        <dt><span>Valor</span></dt>
+        <dd>
+            <span>{{detailShopping.valor}}</span>
+        </dd>
+        <dt><span>Shopping</span></dt>
+        <dd>
+            <div *ngIf="detailShopping.shoppingId">
+                <a [routerLink]="['/shopping-my-suffix', detailShopping.shoppingId]">{{detailShopping.shoppingId}}</a>
+            </div>
+        </dd>
+        <dt><span>Clothes</span></dt>
+        <dd>
+            <div *ngIf="detailShopping.clothesId">
+                <a [routerLink]="['/clothes-my-suffix', detailShopping.clothesId]">{{detailShopping.clothesId}}</a>
+            </div>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            (click)="previousState()"
+            class="btn btn-info">
+        <span class="fa fa-arrow-left"></span>&nbsp;<span> Back</span>
+    </button>
+
+    <button type="button"
+            [routerLink]="['/', { outlets: { popup: 'detail-shopping-my-suffix/'+ detailShopping.id + '/edit'} }]"
+            replaceUrl="true"
+            queryParamsHandling="merge"
+            class="btn btn-primary">
+        <span class="fa fa-pencil"></span>&nbsp;<span> Edit</span>
+    </button>
+</div>

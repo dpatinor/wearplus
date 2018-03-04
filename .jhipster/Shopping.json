@@ -1,0 +1,41 @@
+{
+    "fluentMethods": true,
+    "relationships": [],
+    "fields": [
+        {
+            "fieldName": "name",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "idType",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "idNumber",
+            "fieldType": "Long"
+        },
+        {
+            "fieldName": "dateOrder",
+            "fieldType": "Instant"
+        },
+        {
+            "fieldName": "dateDelivery",
+            "fieldType": "Instant"
+        },
+        {
+            "fieldName": "address",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "total",
+            "fieldType": "Float"
+        }
+    ],
+    "changelogDate": "20180304075050",
+    "entityTableName": "shopping",
+    "dto": "mapstruct",
+    "pagination": "pagination",
+    "service": "serviceImpl",
+    "jpaMetamodelFiltering": false,
+    "angularJSSuffix": "mySuffix"
+}

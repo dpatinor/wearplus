@@ -1,0 +1,48 @@
+
+entity TypeClothes {
+	name String
+}
+
+entity Clothes {
+	name String,
+    quantity Long,
+    value Float,
+    image String
+}
+
+entity Shopping {
+	name String,
+    idType String,
+    idNumber Long,    
+	dateOrder Instant,
+    dateDelivery Instant,
+    address String,
+    total Float
+}
+
+entity DetailShopping {
+	quantity Long,
+    valor Float
+}
+
+relationship OneToOne {
+	Clothes{typeClothes} to TypeClothes
+}
+
+relationship OneToOne {
+	DetailShopping{shopping} to Shopping
+}
+
+relationship OneToOne {
+	DetailShopping{clothes} to Clothes
+}
+
+// Set pagination options
+paginate TypeClothes, Clothes, Shopping, DetailShopping with pagination
+
+dto * with mapstruct
+
+// Set service options to all except few
+service all with serviceImpl
+// Set an angular suffix
+angularSuffix * with mySuffix

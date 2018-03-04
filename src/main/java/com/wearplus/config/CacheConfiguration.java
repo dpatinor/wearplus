@@ -42,6 +42,10 @@ public class CacheConfiguration {
             cm.createCache(com.wearplus.domain.User.class.getName(), jcacheConfiguration);
             cm.createCache(com.wearplus.domain.Authority.class.getName(), jcacheConfiguration);
             cm.createCache(com.wearplus.domain.User.class.getName() + ".authorities", jcacheConfiguration);
+            cm.createCache(com.wearplus.domain.TypeClothes.class.getName(), jcacheConfiguration);
+            cm.createCache(com.wearplus.domain.Clothes.class.getName(), jcacheConfiguration);
+            cm.createCache(com.wearplus.domain.Shopping.class.getName(), jcacheConfiguration);
+            cm.createCache(com.wearplus.domain.DetailShopping.class.getName(), jcacheConfiguration);
             // jhipster-needle-ehcache-add-entry
         };
     }

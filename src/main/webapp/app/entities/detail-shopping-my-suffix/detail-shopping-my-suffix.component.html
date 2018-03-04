@@ -1,0 +1,80 @@
+<div>
+    <h2>
+        <span>Detail Shoppings</span>
+        <button class="btn btn-primary float-right jh-create-entity create-detail-shopping-my-suffix" [routerLink]="['/', { outlets: { popup: ['detail-shopping-my-suffix-new'] } }]">
+            <span class="fa fa-plus"></span>
+            <span >
+            Create new Detail Shopping
+            </span>
+        </button>
+    </h2>
+    <jhi-alert></jhi-alert>
+    <div class="row">
+    </div>
+    <br/>
+    <div class="table-responsive" *ngIf="detailShoppings">
+        <table class="table table-striped">
+            <thead>
+            <tr jhiSort [(predicate)]="predicate" [(ascending)]="reverse" [callback]="transition.bind(this)">
+            <th jhiSortBy="id"><span>ID</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="quantity"><span>Quantity</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="valor"><span>Valor</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="shoppingId"><span>Shopping</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="clothesId"><span>Clothes</span> <span class="fa fa-sort"></span></th>
+            <th></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let detailShopping of detailShoppings ;trackBy: trackId">
+                <td><a [routerLink]="['../detail-shopping-my-suffix', detailShopping.id ]">{{detailShopping.id}}</a></td>
+                <td>{{detailShopping.quantity}}</td>
+                <td>{{detailShopping.valor}}</td>
+                <td>
+                    <div *ngIf="detailShopping.shoppingId">
+                        <a [routerLink]="['../shopping-my-suffix', detailShopping.shoppingId  ]" >{{detailShopping.shoppingId}}</a>
+                    </div>
+                </td>
+                <td>
+                    <div *ngIf="detailShopping.clothesId">
+                        <a [routerLink]="['../clothes-my-suffix', detailShopping.clothesId  ]" >{{detailShopping.clothesId}}</a>
+                    </div>
+                </td>
+                <td class="text-right">
+                    <div class="btn-group flex-btn-group-container">
+                        <button type="submit"
+                                [routerLink]="['../detail-shopping-my-suffix', detailShopping.id ]"
+                                class="btn btn-info btn-sm">
+                            <span class="fa fa-eye"></span>
+                            <span class="d-none d-md-inline">View</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/', { outlets: { popup: 'detail-shopping-my-suffix/'+ detailShopping.id + '/edit'} }]"
+                                replaceUrl="true"
+                                queryParamsHandling="merge"
+                                class="btn btn-primary btn-sm">
+                            <span class="fa fa-pencil"></span>
+                            <span class="d-none d-md-inline">Edit</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/', { outlets: { popup: 'detail-shopping-my-suffix/'+ detailShopping.id + '/delete'} }]"
+                                replaceUrl="true"
+                                queryParamsHandling="merge"
+                                class="btn btn-danger btn-sm">
+                            <span class="fa fa-remove"></span>
+                            <span class="d-none d-md-inline">Delete</span>
+                        </button>
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+    <div *ngIf="detailShoppings && detailShoppings.length">
+        <div class="row justify-content-center">
+            <jhi-item-count [page]="page" [total]="queryCount" [maxSize]="5" [itemsPerPage]="itemsPerPage"></jhi-item-count>
+        </div>
+        <div class="row justify-content-center">
+            <ngb-pagination [collectionSize]="totalItems" [(page)]="page" [pageSize]="itemsPerPage" [maxSize]="5" [rotate]="true" [boundaryLinks]="true" (pageChange)="loadPage(page)"></ngb-pagination>
+        </div>
+    </div>
+</div>

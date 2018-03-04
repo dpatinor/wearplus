@@ -1,0 +1,38 @@
+{
+    "fluentMethods": true,
+    "relationships": [
+        {
+            "relationshipType": "one-to-one",
+            "relationshipName": "shopping",
+            "otherEntityName": "shopping",
+            "otherEntityField": "id",
+            "ownerSide": true,
+            "otherEntityRelationshipName": "detailShopping"
+        },
+        {
+            "relationshipType": "one-to-one",
+            "relationshipName": "clothes",
+            "otherEntityName": "clothes",
+            "otherEntityField": "id",
+            "ownerSide": true,
+            "otherEntityRelationshipName": "detailShopping"
+        }
+    ],
+    "fields": [
+        {
+            "fieldName": "quantity",
+            "fieldType": "Long"
+        },
+        {
+            "fieldName": "valor",
+            "fieldType": "Float"
+        }
+    ],
+    "changelogDate": "20180304075051",
+    "entityTableName": "detail_shopping",
+    "dto": "mapstruct",
+    "pagination": "pagination",
+    "service": "serviceImpl",
+    "jpaMetamodelFiltering": false,
+    "angularJSSuffix": "mySuffix"
+}
