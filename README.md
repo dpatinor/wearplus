@@ -39,7 +39,6 @@ Se utiliza yarn scripts y [Webpack] [] como el sistema de compilación.
 Intalar PostgreSQL 10.3 Released en su maquina y ejecutar los siguientes querys, para iniciar la base de datos.
 
 ```
-#!sql
 CREATE USER wearplus WITH PASSWORD 'wearplus';
 
 CREATE DATABASE wearplus ENCODING 'UTF8';
