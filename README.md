@@ -5,38 +5,23 @@ Aplicación generada con JHipster 4.14.1, documentación en [http://www.jhipster
 
     Java: http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html
     Gradle: https://gradle.org/
+    spring: https://spring.io/
+    JAX-RS: JAX-RS
+    Jrrsey: https://jersey.github.io/index.html
+    hibernate: http://hibernate.org/
+    postgresql: https://www.postgresql.org/download/
 
-spring: https://spring.io/
-
-JAX-RS: JAX-RS
-
-Jrrsey: https://jersey.github.io/index.html
-
-hibernate: http://hibernate.org/
-
-postgresql: https://www.postgresql.org/download/
-
-
-Node.js: https://nodejs.org/
-
-Yarn: https://yarnpkg.org/
-
-Webpack: https://webpack.github.io/
-
-Angular CLI: https://cli.angular.io/
-
-BrowserSync: http://www.browsersync.io/
-
-Karma: http://karma-runner.github.io/
-
-Jasmine: http://jasmine.github.io/2.0/introduction.html
-
-Protractor: https://angular.github.io/protractor/
-
-Leaflet: http://leafletjs.com/
-
-DefinitelyTyped: http://definitelytyped.org/
-
+    Node.js: https://nodejs.org/
+    Yarn: https://yarnpkg.org/
+    Webpack: https://webpack.github.io/
+    Angular CLI: https://cli.angular.io/
+    BrowserSync: http://www.browsersync.io/
+    Karma: http://karma-runner.github.io/
+    Jasmine: http://jasmine.github.io/2.0/introduction.html
+    Protractor: https://angular.github.io/protractor/
+    Leaflet: http://leafletjs.com/
+    DefinitelyTyped: http://definitelytyped.org/
+    
 ## Desarrollo
 
 Antes de compilar este proyecto, debe instalar y configurar las siguientes dependencias:
