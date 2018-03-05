@@ -4,6 +4,7 @@ Aplicación generada con JHipster 4.14.1, documentación en [http://www.jhipster
 # Algunas tecnologías
 
 Java: http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html
+
 Gradle: https://gradle.org/
 spring: https://spring.io/
 JAX-RS: JAX-RS
