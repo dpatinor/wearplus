@@ -76,7 +76,7 @@ generará los archivos:
     update src/main/webapp/app/app.module.ts
 
 
-## Building para producción
+## Building para producción (Apache Tomcat)
 
 Para optimizar la aplicación wearplus para producción, ejecute:
 
