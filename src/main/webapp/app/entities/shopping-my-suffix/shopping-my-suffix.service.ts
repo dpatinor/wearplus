@@ -13,7 +13,7 @@ export type EntityResponseType = HttpResponse<ShoppingMySuffix>;
 @Injectable()
 export class ShoppingMySuffixService {
 
-    private resourceUrl =  SERVER_API_URL + 'api/shoppings';
+    private resourceUrl =  SERVER_API_URL + 'rest/shoppings';
 
     constructor(private http: HttpClient, private dateUtils: JhiDateUtils) { }
 

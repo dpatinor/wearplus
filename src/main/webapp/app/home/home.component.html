@@ -1,41 +1,40 @@
 <div class="row">
     <div class="col-md-3">
-        <span class="hipster img-fluid rounded"></span>
+        <span class="logo img-fluid rounded"></span>
     </div>
     <div class="col-md-9">
-        <h1 class="display-4">Welcome, Java Hipster!</h1>
-        <p class="lead">This is your homepage</p>
+        <h1 class="display-4">Bienvenido a <span style="color:#16b5db; font-weight: bold;">wearplus</span></h1>
+        <p class="lead">wearplus.com.co es un sitio de moda online, donde encontrarás lo mejor en vestuario, camisas formales, pantalones formales, chaquetas y mucho más.</p>
 
         <div [ngSwitch]="isAuthenticated()">
-            <div class="alert alert-success" *ngSwitchCase="true">
-                <span *ngIf="account"
-                   > You are logged in as user "{{account.login}}". </span>
+            <div class="alert alert-info" *ngSwitchCase="true">
+                <span *ngIf="account"> Hola "{{account.login}}". </span><br/>
+                <span> Para realizar un pedido,  <a class="alert-link" routerLink="shopping-my-suffix">¡click acá!</a></span>
             </div>
 
             <div class="alert alert-warning" *ngSwitchCase="false">
-                <span>If you want to </span>
-                <a class="alert-link" (click)="login()">sign in</a><span>, you can try the default accounts:<br/>- Administrator (login="admin" and password="admin") <br/>- User (login="user" and password="user").</span>
+                <span>Si quiere realizar un pedido </span>
+                <a class="alert-link" (click)="login()">debe iniciar sesión</a>
             </div>
             <div class="alert alert-warning" *ngSwitchCase="false">
-                <span>You don't have an account yet?</span>
-                <a class="alert-link" routerLink="register">Register a new account</a>
+                <span>¿No tiene cuanta de usuario?</span>
+                <a class="alert-link" routerLink="register">puede crear una acá</a>
             </div>
         </div>
-
         <p>
-            If you have any question on JHipster:
+            Contacto:
         </p>
 
         <ul>
-            <li><a href="http://www.jhipster.tech/" target="_blank" rel="noopener">JHipster homepage</a></li>
-            <li><a href="http://stackoverflow.com/tags/jhipster/info" target="_blank" rel="noopener">JHipster on Stack Overflow</a></li>
-            <li><a href="https://github.com/jhipster/generator-jhipster/issues?state=open" target="_blank" rel="noopener">JHipster bug tracker</a></li>
-            <li><a href="https://gitter.im/jhipster/generator-jhipster" target="_blank" rel="noopener">JHipster public chat room</a></li>
-            <li><a href="https://twitter.com/java_hipster" target="_blank" rel="noopener">follow @java_hipster on Twitter</a></li>
+            <li>Wearplus Limitada</li>
+            <li>Teléfono: +57 (4) 888 88 88</li>
+            <li>Dirección: Carrera 33 # 33 - 33</li>
+            <li>Medellín, Colombia</li>
+            <li style="color:#16b5db;">info@wearplus.com.co</li>
         </ul>
 
         <p>
-            <span>If you like JHipster, don't forget to give us a star on</span> <a href="https://github.com/jhipster/generator-jhipster" target="_blank" rel="noopener">GitHub</a>!
+            <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d3966.1665633615844!2d-75.5883408192773!3d6.2417669632964845!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2sco!4v1520153371576" width="600" height="450" frameborder="0" style="border:0" allowfullscreen></iframe>
         </p>
     </div>
 </div>

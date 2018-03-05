@@ -40,48 +40,6 @@ public class DetailShoppingResource {
     }
 
     /**
-     * POST  /detail-shoppings : Create a new detailShopping.
-     *
-     * @param detailShoppingDTO the detailShoppingDTO to create
-     * @return the ResponseEntity with status 201 (Created) and with body the new detailShoppingDTO, or with status 400 (Bad Request) if the detailShopping has already an ID
-     * @throws URISyntaxException if the Location URI syntax is incorrect
-     */
-    @PostMapping("/detail-shoppings")
-    @Timed
-    public ResponseEntity<DetailShoppingDTO> createDetailShopping(@RequestBody DetailShoppingDTO detailShoppingDTO) throws URISyntaxException {
-        log.debug("REST request to save DetailShopping : {}", detailShoppingDTO);
-        if (detailShoppingDTO.getId() != null) {
-            throw new BadRequestAlertException("A new detailShopping cannot already have an ID", ENTITY_NAME, "idexists");
-        }
-        DetailShoppingDTO result = detailShoppingService.save(detailShoppingDTO);
-        return ResponseEntity.created(new URI("/api/detail-shoppings/" + result.getId()))
-            .headers(HeaderUtil.createEntityCreationAlert(ENTITY_NAME, result.getId().toString()))
-            .body(result);
-    }
-
-    /**
-     * PUT  /detail-shoppings : Updates an existing detailShopping.
-     *
-     * @param detailShoppingDTO the detailShoppingDTO to update
-     * @return the ResponseEntity with status 200 (OK) and with body the updated detailShoppingDTO,
-     * or with status 400 (Bad Request) if the detailShoppingDTO is not valid,
-     * or with status 500 (Internal Server Error) if the detailShoppingDTO couldn't be updated
-     * @throws URISyntaxException if the Location URI syntax is incorrect
-     */
-    @PutMapping("/detail-shoppings")
-    @Timed
-    public ResponseEntity<DetailShoppingDTO> updateDetailShopping(@RequestBody DetailShoppingDTO detailShoppingDTO) throws URISyntaxException {
-        log.debug("REST request to update DetailShopping : {}", detailShoppingDTO);
-        if (detailShoppingDTO.getId() == null) {
-            return createDetailShopping(detailShoppingDTO);
-        }
-        DetailShoppingDTO result = detailShoppingService.save(detailShoppingDTO);
-        return ResponseEntity.ok()
-            .headers(HeaderUtil.createEntityUpdateAlert(ENTITY_NAME, detailShoppingDTO.getId().toString()))
-            .body(result);
-    }
-
-    /**
      * GET  /detail-shoppings : get all the detailShoppings.
      *
      * @param pageable the pagination information
@@ -110,17 +68,4 @@ public class DetailShoppingResource {
         return ResponseUtil.wrapOrNotFound(Optional.ofNullable(detailShoppingDTO));
     }
 
-    /**
-     * DELETE  /detail-shoppings/:id : delete the "id" detailShopping.
-     *
-     * @param id the id of the detailShoppingDTO to delete
-     * @return the ResponseEntity with status 200 (OK)
-     */
-    @DeleteMapping("/detail-shoppings/{id}")
-    @Timed
-    public ResponseEntity<Void> deleteDetailShopping(@PathVariable Long id) {
-        log.debug("REST request to delete DetailShopping : {}", id);
-        detailShoppingService.delete(id);
-        return ResponseEntity.ok().headers(HeaderUtil.createEntityDeletionAlert(ENTITY_NAME, id.toString())).build();
-    }
 }

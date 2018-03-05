@@ -196,6 +196,19 @@ dependencies {
     compile "io.springfox:springfox-bean-validators"
     compile "org.postgresql:postgresql"
     compile "org.mapstruct:mapstruct-jdk8:${mapstruct_version}"
+
+    compile "org.springframework.boot:spring-boot-starter-jersey"
+    //compile "org.springframework.boot:spring-boot-starter-jersey:1.2.7.RELEASE"
+    //compile "javax.inject:javax.inject:1"
+    //compile "org.glassfish.jersey.core:jersey-client:2.26"
+    //compile "org.glassfish.jersey.core:jersey-server:2.26"
+    //compile "org.glassfish.jersey.containers:jersey-container-servlet:2.24.1"
+    //compile "org.glassfish.jersey.inject:jersey-hk2:2.24.1"
+    //compile "org.glassfish.jersey.core:jersey-common:2.24.1"
+    //compile "org.glassfish.jersey.media:jersey-media-json-jackson:2.25.1"
+    //compile "org.glassfish.jersey.ext:jersey-spring3:2.25.1"
+    //compile "javax.ws.rs:javax.ws.rs-api:2.0.1"
+
     testCompile "com.jayway.jsonpath:json-path"
     testCompile ("org.springframework.boot:spring-boot-starter-test") {
         exclude group: 'com.vaadin.external.google', module: 'android-json'

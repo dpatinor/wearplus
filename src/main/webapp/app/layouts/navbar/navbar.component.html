@@ -5,7 +5,7 @@
         </a>
         <a class="navbar-brand logo float-left" routerLink="/" (click)="collapseNavbar()">
             <span class="logo-img"></span>
-            <span class="navbar-title">Wearplus</span> <span class="navbar-version">{{version}}</span>
+            <span class="navbar-title">Wearplus</span>
         </a>
     </div>
     <div class="navbar-collapse collapse" id="navbarResponsive" [ngbCollapse]="isNavbarCollapsed" [ngSwitch]="isAuthenticated()">
@@ -14,49 +14,31 @@
                 <a class="nav-link" routerLink="/" (click)="collapseNavbar()">
                     <span>
                         <i class="fa fa-home" aria-hidden="true"></i>
-                        <span>Home</span>
+                        <span>Inicio</span>
                     </span>
                 </a>
             </li>
             <!-- jhipster-needle-add-element-to-menu - JHipster will add new menu items here -->
-            <li *ngSwitchCase="true" ngbDropdown class="nav-item dropdown pointer" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">
+            <li *jhiHasAnyAuthority="'ROLE_ADMIN'" ngbDropdown class="nav-item dropdown pointer" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">
                 <a class="nav-link dropdown-toggle" ngbDropdownToggle href="javascript:void(0);" id="entity-menu">
                     <span>
                         <i class="fa fa-th-list" aria-hidden="true"></i>
                         <span>
-                            Entities
+                            Menú
                         </span>
                     </span>
                 </a>
                 <ul class="dropdown-menu" ngbDropdownMenu>
                     <li>
-                        <a class="dropdown-item" routerLink="type-clothes-my-suffix" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" (click)="collapseNavbar()">
-                            <i class="fa fa-fw fa-asterisk" aria-hidden="true"></i>
-                            <span>Type Clothes My Suffix</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a class="dropdown-item" routerLink="clothes-my-suffix" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" (click)="collapseNavbar()">
-                            <i class="fa fa-fw fa-asterisk" aria-hidden="true"></i>
-                            <span>Clothes My Suffix</span>
-                        </a>
-                    </li>
-                    <li>
                         <a class="dropdown-item" routerLink="shopping-my-suffix" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" (click)="collapseNavbar()">
                             <i class="fa fa-fw fa-asterisk" aria-hidden="true"></i>
-                            <span>Shopping My Suffix</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a class="dropdown-item" routerLink="detail-shopping-my-suffix" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" (click)="collapseNavbar()">
-                            <i class="fa fa-fw fa-asterisk" aria-hidden="true"></i>
-                            <span>Detail Shopping My Suffix</span>
+                            <span>Pedidos</span>
                         </a>
                     </li>
                     <!-- jhipster-needle-add-entity-to-menu - JHipster will add entities to the menu here -->
                 </ul>
             </li>
-            <li *jhiHasAnyAuthority="'ROLE_ADMIN'" ngbDropdown class="nav-item dropdown pointer" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">
+            <li *jhiHasAnyAuthority="'ROLE_ADMIN', 'ROLE_USER'" ngbDropdown class="nav-item dropdown pointer" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">
                 <a class="nav-link dropdown-toggle" ngbDropdownToggle href="javascript:void(0);" id="admin-menu">
                     <span>
                         <i class="fa fa-user-plus" aria-hidden="true"></i>
@@ -114,7 +96,7 @@
                   <span *ngIf="!getImageUrl()">
                     <i class="fa fa-user" aria-hidden="true"></i>
                     <span>
-                      Account
+                      Cuenta
                     </span>
                   </span>
                   <span *ngIf="getImageUrl()">
@@ -122,34 +104,34 @@
                   </span>
                 </a>
                 <ul class="dropdown-menu" ngbDropdownMenu>
-                    <li *ngSwitchCase="true">
+                    <!--li *ngSwitchCase="true">
                         <a class="dropdown-item" routerLink="settings" routerLinkActive="active" (click)="collapseNavbar()">
                             <i class="fa fa-fw fa-wrench" aria-hidden="true"></i>
-                            <span>Settings</span>
+                            <span>Configuración</span>
                         </a>
-                    </li>
-                    <li *ngSwitchCase="true">
+                    </li-->
+                    <!--li *ngSwitchCase="true">
                         <a class="dropdown-item" routerLink="password" routerLinkActive="active" (click)="collapseNavbar()">
                             <i class="fa fa-fw fa-clock-o" aria-hidden="true"></i>
-                            <span>Password</span>
+                            <span>Contraseña</span>
                         </a>
-                    </li>
+                    </li-->
                     <li *ngSwitchCase="true">
                         <a class="dropdown-item" (click)="logout()" id="logout">
                             <i class="fa fa-fw fa-sign-out" aria-hidden="true"></i>
-                            <span>Sign out</span>
+                            <span>Salir</span>
                         </a>
                     </li>
                     <li *ngSwitchCase="false">
                         <a class="dropdown-item" (click)="login()" id="login">
                             <i class="fa fa-fw fa-sign-in" aria-hidden="true"></i>
-                            <span>Sign in</span>
+                            <span>Iniciar sesión</span>
                         </a>
                     </li>
                     <li *ngSwitchCase="false">
                         <a class="dropdown-item" routerLink="register" routerLinkActive="active" (click)="collapseNavbar()">
                             <i class="fa fa-fw fa-user-plus" aria-hidden="true"></i>
-                            <span>Register</span>
+                            <span>Registrarse</span>
                         </a>
                     </li>
                 </ul>
