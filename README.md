@@ -1,5 +1,5 @@
 # wearplus
-Aplicación generada con JHipster 4.14.1, documentación en [http://www.jhipster.tech/documentation-archive/v4.14.1](http://www.jhipster.tech/documentation-archive/v4.14.1).
+
 
 # Algunas tecnologías
 
