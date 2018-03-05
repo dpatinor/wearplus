@@ -9,7 +9,7 @@ Aplicación generada con JHipster 4.14.1, documentación en [http://www.jhipster
 [JAX-RS]: JAX-RS
 [Jrrsey]: https://jersey.github.io/index.html
 [hibernate]: http://hibernate.org/
-[postgresql] https://www.postgresql.org/download/
+[postgresql]: https://www.postgresql.org/download/
 
 [Node.js]: https://nodejs.org/
 [Yarn]: https://yarnpkg.org/
