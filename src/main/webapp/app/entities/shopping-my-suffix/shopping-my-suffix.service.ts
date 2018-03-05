@@ -8,6 +8,11 @@ import { JhiDateUtils } from 'ng-jhipster';
 import { ShoppingMySuffix } from './shopping-my-suffix.model';
 import { createRequestOption } from '../../shared';
 
+import { TypeClothesMySuffix } from './type-clothes-my-suffix.model';
+import { ClothesMySuffix } from './clothes-my-suffix.model';
+
+import { HttpParams } from '@angular/common/http';
+
 export type EntityResponseType = HttpResponse<ShoppingMySuffix>;
 
 @Injectable()
@@ -38,6 +43,20 @@ export class ShoppingMySuffixService {
         const options = createRequestOption(req);
         return this.http.get<ShoppingMySuffix[]>(this.resourceUrl, { params: options, observe: 'response' })
             .map((res: HttpResponse<ShoppingMySuffix[]>) => this.convertArrayResponse(res));
+    }
+
+    queryTypeClothes(req?: any): Observable<HttpResponse<TypeClothesMySuffix[]>> {
+        const options = createRequestOption(req);
+        return this.http.get<TypeClothesMySuffix[]>(SERVER_API_URL + 'rest/type-clothes', { params: options, observe: 'response' })
+            .map((res: HttpResponse<TypeClothesMySuffix[]>) => this.convertArrayResponse(res));
+    }
+
+    queryClothes(typeId: any): Observable<HttpResponse<ClothesMySuffix[]>> {
+        const options: HttpParams = new HttpParams();
+        options.set('typeClothesId', typeId);
+        debugger;
+        return this.http.get<ClothesMySuffix[]>(SERVER_API_URL + 'rest/clothes', { params: options, observe: 'response' })
+            .map((res: HttpResponse<ClothesMySuffix[]>) => this.convertArrayResponse(res));
     }
 
     delete(id: number): Observable<HttpResponse<any>> {

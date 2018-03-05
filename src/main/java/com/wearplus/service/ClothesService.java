@@ -1,8 +1,11 @@
 package com.wearplus.service;
 
+import com.wearplus.domain.Clothes;
 import com.wearplus.service.dto.ClothesDTO;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
+
+import java.util.List;
 
 /**
  * Service Interface for managing Clothes.
@@ -24,6 +27,14 @@ public interface ClothesService {
      * @return the list of entities
      */
     Page<ClothesDTO> findAll(Pageable pageable);
+
+    /**
+     * Get all the clothes.
+     *
+     * @param typeClothesId the typeClothesId
+     * @return the list of entities
+     */
+    List<Clothes> findAllByTypeClothesId(Long typeClothesId);
 
     /**
      * Get the "id" clothes.

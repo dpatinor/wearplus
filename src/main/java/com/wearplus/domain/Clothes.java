@@ -35,8 +35,7 @@ public class Clothes implements Serializable {
     @Column(name = "image")
     private String image;
 
-    @OneToOne
-    @JoinColumn(unique = true)
+    @ManyToOne
     private TypeClothes typeClothes;
 
     // jhipster-needle-entity-add-field - JHipster will add fields here, do not remove

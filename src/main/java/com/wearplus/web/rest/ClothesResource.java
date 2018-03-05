@@ -1,6 +1,7 @@
 package com.wearplus.web.rest;
 
 import com.codahale.metrics.annotation.Timed;
+import com.wearplus.domain.Clothes;
 import com.wearplus.service.ClothesService;
 import com.wearplus.web.rest.errors.BadRequestAlertException;
 import com.wearplus.web.rest.util.HeaderUtil;
@@ -14,8 +15,14 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.stereotype.Component;
 import org.springframework.web.bind.annotation.*;
 
+import javax.ws.rs.GET;
+import javax.ws.rs.Path;
+import javax.ws.rs.Produces;
+import javax.ws.rs.QueryParam;
+import javax.ws.rs.core.Response;
 import java.net.URI;
 import java.net.URISyntaxException;
 
@@ -25,8 +32,8 @@ import java.util.Optional;
 /**
  * REST controller for managing Clothes.
  */
-@RestController
-@RequestMapping("/api")
+@Component
+@Path("/clothes")
 public class ClothesResource {
 
     private final Logger log = LoggerFactory.getLogger(ClothesResource.class);
@@ -42,16 +49,16 @@ public class ClothesResource {
     /**
      * GET  /clothes : get all the clothes.
      *
-     * @param pageable the pagination information
+     * @param typeClothesId
      * @return the ResponseEntity with status 200 (OK) and the list of clothes in body
      */
-    @GetMapping("/clothes")
-    @Timed
-    public ResponseEntity<List<ClothesDTO>> getAllClothes(Pageable pageable) {
+    @GET
+    @Produces("application/json")
+    public Response findAllByTypeClothesId(@QueryParam("typeClothesId") Long typeClothesId) {
         log.debug("REST request to get a page of Clothes");
-        Page<ClothesDTO> page = clothesService.findAll(pageable);
-        HttpHeaders headers = PaginationUtil.generatePaginationHttpHeaders(page, "/api/clothes");
-        return new ResponseEntity<>(page.getContent(), headers, HttpStatus.OK);
+        List<Clothes> list = clothesService.findAllByTypeClothesId(typeClothesId);
+        return Response.ok(list)
+            .build();
     }
 
  }

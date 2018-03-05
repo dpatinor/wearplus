@@ -1,10 +1,10 @@
 <div>
     <h2>
-        <span>Shoppings</span>
+        <span>Pedidos</span>
         <button class="btn btn-primary float-right jh-create-entity create-shopping-my-suffix" [routerLink]="['/', { outlets: { popup: ['shopping-my-suffix-new'] } }]">
             <span class="fa fa-plus"></span>
             <span >
-            Create new Shopping
+            Nuevo pedido
             </span>
         </button>
     </h2>
@@ -12,17 +12,20 @@
     <div class="row">
     </div>
     <br/>
+	<h3>
+        <span>Historial de pedidos</span>
+	</h3>
     <div class="table-responsive" *ngIf="shoppings">
         <table class="table table-striped">
             <thead>
             <tr jhiSort [(predicate)]="predicate" [(ascending)]="reverse" [callback]="transition.bind(this)">
             <th jhiSortBy="id"><span>ID</span> <span class="fa fa-sort"></span></th>
-            <th jhiSortBy="name"><span>Name</span> <span class="fa fa-sort"></span></th>
-            <th jhiSortBy="idType"><span>Id Type</span> <span class="fa fa-sort"></span></th>
-            <th jhiSortBy="idNumber"><span>Id Number</span> <span class="fa fa-sort"></span></th>
-            <th jhiSortBy="dateOrder"><span>Date Order</span> <span class="fa fa-sort"></span></th>
-            <th jhiSortBy="dateDelivery"><span>Date Delivery</span> <span class="fa fa-sort"></span></th>
-            <th jhiSortBy="address"><span>Address</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="name"><span>Nombre</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="idType"><span>Tipo de Id</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="idNumber"><span>Número de Id</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="dateOrder"><span>Fecha</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="dateDelivery"><span>Fecha de entrega</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="address"><span>Dirección</span> <span class="fa fa-sort"></span></th>
             <th jhiSortBy="total"><span>Total</span> <span class="fa fa-sort"></span></th>
             <th></th>
             </tr>
@@ -43,24 +46,8 @@
                                 [routerLink]="['../shopping-my-suffix', shopping.id ]"
                                 class="btn btn-info btn-sm">
                             <span class="fa fa-eye"></span>
-                            <span class="d-none d-md-inline">View</span>
-                        </button>
-                        <button type="submit"
-                                [routerLink]="['/', { outlets: { popup: 'shopping-my-suffix/'+ shopping.id + '/edit'} }]"
-                                replaceUrl="true"
-                                queryParamsHandling="merge"
-                                class="btn btn-primary btn-sm">
-                            <span class="fa fa-pencil"></span>
-                            <span class="d-none d-md-inline">Edit</span>
-                        </button>
-                        <button type="submit"
-                                [routerLink]="['/', { outlets: { popup: 'shopping-my-suffix/'+ shopping.id + '/delete'} }]"
-                                replaceUrl="true"
-                                queryParamsHandling="merge"
-                                class="btn btn-danger btn-sm">
-                            <span class="fa fa-remove"></span>
-                            <span class="d-none d-md-inline">Delete</span>
-                        </button>
+                            <span class="d-none d-md-inline">Ver Detalle</span>
+                        </button>            
                     </div>
                 </td>
             </tr>

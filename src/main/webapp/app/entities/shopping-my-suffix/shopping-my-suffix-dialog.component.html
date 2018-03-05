@@ -1,7 +1,7 @@
 <form name="editForm" role="form" novalidate (ngSubmit)="save()" #editForm="ngForm">
 
     <div class="modal-header">
-        <h4 class="modal-title" id="myShoppingLabel">Create or edit a Shopping</h4>
+        <h4 class="modal-title" id="myShoppingLabel">Pedido</h4>
         <button type="button" class="close" data-dismiss="modal" aria-hidden="true"
                 (click)="clear()">&times;</button>
     </div>
@@ -13,52 +13,166 @@
                    [(ngModel)]="shopping.id" readonly />
         </div>
         <div class="form-group">
-            <label class="form-control-label" for="field_name">Name</label>
+            <label class="form-control-label" for="field_name">Nombre</label>
             <input type="text" class="form-control" name="name" id="field_name"
                 [(ngModel)]="shopping.name" />
         </div>
         <div class="form-group">
-            <label class="form-control-label" for="field_idType">Id Type</label>
+            <label class="form-control-label" for="field_idType">Tipo de Id</label>
             <input type="text" class="form-control" name="idType" id="field_idType"
                 [(ngModel)]="shopping.idType" />
         </div>
         <div class="form-group">
-            <label class="form-control-label" for="field_idNumber">Id Number</label>
+            <label class="form-control-label" for="field_idNumber">Número de Id</label>
             <input type="number" class="form-control" name="idNumber" id="field_idNumber"
                 [(ngModel)]="shopping.idNumber" />
         </div>
         <div class="form-group">
-            <label class="form-control-label" for="field_dateOrder">Date Order</label>
+            <label class="form-control-label" for="field_dateOrder">Fecha</label>
             <div class="d-flex">
                 <input id="field_dateOrder" type="datetime-local" class="form-control" name="dateOrder" [(ngModel)]="shopping.dateOrder"
                 />
             </div>
         </div>
-        <div class="form-group">
-            <label class="form-control-label" for="field_dateDelivery">Date Delivery</label>
-            <div class="d-flex">
-                <input id="field_dateDelivery" type="datetime-local" class="form-control" name="dateDelivery" [(ngModel)]="shopping.dateDelivery"
-                />
-            </div>
-        </div>
-        <div class="form-group">
-            <label class="form-control-label" for="field_address">Address</label>
-            <input type="text" class="form-control" name="address" id="field_address"
-                [(ngModel)]="shopping.address" />
-        </div>
-        <div class="form-group">
-            <label class="form-control-label" for="field_total">Total</label>
-            <input type="number" class="form-control" name="total" id="field_total"
-                [(ngModel)]="shopping.total" />
-        </div>
-
+		<div class="form-group">
+			<label class="form-control-label" for="field_address">Dirección</label>
+			<input type="text" class="form-control" name="address" id="field_address"
+				[(ngModel)]="shopping.address" />
+		</div>		
+		<div class="row">
+			<div class="col-md-4">
+				<div class="form-group">
+					<label class="form-control-label" for="field_address">Tipo de ropa</label>
+					<select class="form-control" (ngModelChange)='type1Selected($event)' [(ngModel)]="type1" name="type1">
+						<option class='option' [ngValue]="">-Seleccione-</option>
+						<option class='option' *ngFor='let type of types' [ngValue]="type">{{type.name}}</option>
+					</select>
+				</div>
+			</div>
+			<div class="col-md-4">
+				<div class="form-group">
+					<label class="form-control-label" for="field_address">Ropa</label>
+					<select class="form-control">
+							<option class='option' [value]="">-Seleccione-</option>
+							<option class='option' *ngFor='let clothes of clothes1' [value]="clothes">{{clothes.name}}</option>
+					</select>
+				</div>
+			</div>
+			<div class="col-md-4">
+				<div class="form-group">
+					<label class="form-control-label" for="field_address">valor</label>
+					<input type="text" class="form-control" name="address" id="field_address"
+						[(ngModel)]="shopping.address" />
+				</div>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-md-4">
+				<div class="form-group">
+					<label class="form-control-label" for="field_address"></label>
+					<select class="form-control" (ngModelChange)='type2Selected($event)'>
+						<option class='option' [value]="">-Seleccione-</option>
+						<option class='option' *ngFor='let type of types' [value]="type">{{type.name}}</option>
+					</select>
+				</div>
+			</div>
+			<div class="col-md-4">
+				<div class="form-group">
+					<label class="form-control-label" for="field_address"></label>
+					<input type="text" class="form-control" name="address" id="field_address"
+						[(ngModel)]="shopping.address" />
+				</div>
+			</div>
+			<div class="col-md-4">
+				<div class="form-group">
+					<label class="form-control-label" for="field_address"></label>
+					<input type="text" class="form-control" name="address" id="field_address"
+						[(ngModel)]="shopping.address" />
+				</div>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-md-4">
+				<div class="form-group">
+					<label class="form-control-label" for="field_address"></label>
+					<select class="form-control" (ngModelChange)='type3Selected($event)'>
+						<option class='option' [value]="">-Seleccione-</option>
+						<option class='option' *ngFor='let type of types' [value]="type">{{type.name}}</option>
+					</select>
+				</div>
+			</div>
+			<div class="col-md-4">
+				<div class="form-group">
+					<label class="form-control-label" for="field_address"></label>
+					<input type="text" class="form-control" name="address" id="field_address"
+						[(ngModel)]="shopping.address" />
+				</div>
+			</div>
+			<div class="col-md-4">
+				<div class="form-group">
+					<label class="form-control-label" for="field_address"></label>
+					<input type="text" class="form-control" name="address" id="field_address"
+						[(ngModel)]="shopping.address" />
+				</div>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-md-4">
+				<div class="form-group">
+					<label class="form-control-label" for="field_address"></label>
+					<select class="form-control" (ngModelChange)='type4Selected($event)'>
+						<option class='option' [value]="">-Seleccione-</option>
+						<option class='option' *ngFor='let type of types' [value]="type">{{type.name}}</option>
+					</select>
+				</div>
+			</div>
+			<div class="col-md-4">
+				<div class="form-group">
+					<label class="form-control-label" for="field_address"></label>
+					<input type="text" class="form-control" name="address" id="field_address"
+						[(ngModel)]="shopping.address" />
+				</div>
+			</div>
+			<div class="col-md-4">
+				<div class="form-group">
+					<label class="form-control-label" for="field_address"></label>
+					<input type="text" class="form-control" name="address" id="field_address"
+						[(ngModel)]="shopping.address" />
+				</div>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-md-4">
+				<div class="form-group">
+					<label class="form-control-label" for="field_address"></label>
+					<select class="form-control" (ngModelChange)='type5Selected($event)'>
+						<option class='option' [value]="">-Seleccione-</option>
+						<option class='option' *ngFor='let type of types' [value]="type">{{type.name}}</option>
+					</select>
+				</div>
+			</div>
+			<div class="col-md-4">
+				<div class="form-group">
+					<label class="form-control-label" for="field_address"></label>
+					<input type="text" class="form-control" name="address" id="field_address"
+						[(ngModel)]="shopping.address" />
+				</div>
+			</div>
+			<div class="col-md-4">
+				<div class="form-group">
+					<label class="form-control-label" for="field_address"></label>
+					<input type="text" class="form-control" name="address" id="field_address"
+						[(ngModel)]="shopping.address" />
+				</div>
+			</div>
+		</div>	
     </div>
     <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal" (click)="clear()">
             <span class="fa fa-ban"></span>&nbsp;<span>Cancel</span>
         </button>
         <button type="submit" [disabled]="editForm.form.invalid || isSaving" class="btn btn-primary">
-            <span class="fa fa-save"></span>&nbsp;<span>Save</span>
+            <span class="fa fa-save"></span>&nbsp;<span>Generar</span>
         </button>
     </div>
 </form>

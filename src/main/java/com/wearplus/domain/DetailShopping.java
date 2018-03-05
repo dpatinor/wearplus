@@ -29,12 +29,10 @@ public class DetailShopping implements Serializable {
     @Column(name = "valor")
     private Float valor;
 
-    @OneToOne
-    @JoinColumn(unique = true)
+    @ManyToOne
     private Shopping shopping;
 
-    @OneToOne
-    @JoinColumn(unique = true)
+    @ManyToOne
     private Clothes clothes;
 
     // jhipster-needle-entity-add-field - JHipster will add fields here, do not remove
