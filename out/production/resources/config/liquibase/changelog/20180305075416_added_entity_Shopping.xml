@@ -14,10 +14,10 @@
     <property name="floatType" value="float" dbms="mysql, oracle, mssql"/>
 
     <!--
-        Added the entity Clothes.
+        Added the entity Shopping.
     -->
-    <changeSet id="20180304075049-1" author="jhipster">
-        <createTable tableName="clothes">
+    <changeSet id="20180305075416-1" author="jhipster">
+        <createTable tableName="shopping">
             <column name="id" type="bigint" autoIncrement="${autoIncrement}">
                 <constraints primaryKey="true" nullable="false"/>
             </column>
@@ -25,22 +25,34 @@
                 <constraints nullable="true" />
             </column>
 
-            <column name="quantity" type="bigint">
+            <column name="id_type" type="varchar(255)">
                 <constraints nullable="true" />
             </column>
 
-            <column name="jhi_value" type="${floatType}">
+            <column name="id_number" type="bigint">
                 <constraints nullable="true" />
             </column>
 
-            <column name="image" type="varchar(255)">
+            <column name="date_order" type="timestamp">
                 <constraints nullable="true" />
             </column>
-            <column name="type_clothes_id" type="bigint">
-                <constraints unique="true" nullable="true" />
+
+            <column name="date_delivery" type="timestamp">
+                <constraints nullable="true" />
             </column>
+
+            <column name="address" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="total" type="${floatType}">
+                <constraints nullable="true" />
+            </column>
+
             <!-- jhipster-needle-liquibase-add-column - JHipster will add columns here, do not remove-->
         </createTable>
+        <dropDefaultValue tableName="shopping" columnName="date_order" columnDataType="datetime"/>
+        <dropDefaultValue tableName="shopping" columnName="date_delivery" columnDataType="datetime"/>
         
     </changeSet>
     <!-- jhipster-needle-liquibase-add-changeset - JHipster will add changesets here, do not remove-->

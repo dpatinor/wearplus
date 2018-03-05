@@ -12,6 +12,9 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.List;
+import java.util.Optional;
+
 
 /**
  * Service Implementation for managing Clothes.
@@ -57,6 +60,19 @@ public class ClothesServiceImpl implements ClothesService {
         log.debug("Request to get all Clothes");
         return clothesRepository.findAll(pageable)
             .map(clothesMapper::toDto);
+    }
+
+    /**
+     * Get all the clothes.
+     *
+     * @param typeClothesId the typeClothesId
+     * @return the list of entities
+     */
+    @Override
+    @Transactional(readOnly = true)
+    public List<Clothes> findAllByTypeClothesId(Long typeClothesId) {
+        log.debug("Request to get all Clothes");
+        return clothesRepository.findAllByTypeClothesId(typeClothesId);
     }
 
     /**

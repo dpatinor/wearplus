@@ -14,14 +14,30 @@
     <property name="floatType" value="float" dbms="mysql, oracle, mssql"/>
 
     <!--
-        Added the entity TypeClothes.
+        Added the entity Clothes.
     -->
-    <changeSet id="20180304075048-1" author="jhipster">
-        <createTable tableName="type_clothes">
+    <changeSet id="20180305075415-1" author="jhipster">
+        <createTable tableName="clothes">
             <column name="id" type="bigint" autoIncrement="${autoIncrement}">
                 <constraints primaryKey="true" nullable="false"/>
             </column>
             <column name="name" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="quantity" type="bigint">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="jhi_value" type="${floatType}">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="image" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="type_clothes_id" type="bigint">
                 <constraints nullable="true" />
             </column>
 
