@@ -54,9 +54,11 @@ se actualiza automáticamente cuando los archivos cambian en su disco duro.
     ./gradlew
     yarn start
 
+```
 Usuarios por defecto
 Usuario: admin, Contraseña: admin
 Usuario: user, Contraseña: user
+```
 
 [Yarn][] también se usa para administrar las dependencias de CSS y JavaScript utilizadas en esta aplicación. Puede actualizar las dependencias a una versión más nueva en [package.json] (package.json). También puede ejecutar `yarn update` y `yarn install` para gestionar las dependencias.
 Agregue `help` en cualquier comando para ver cómo puede usarlo. Por ejemplo, `yarn help update'.
@@ -89,9 +91,11 @@ Esto miniatizará los archivos CSS y JavaScript del cliente. También modificar�
 
 Luego ir hacia [http://localhost:8080](http://localhost:8080) en el navegador.
 
+```
 Usuarios por defecto
 Usuario: admin, Contraseña: admin
 Usuario: user, Contraseña: user
+```
 
 ## Prueba
 
