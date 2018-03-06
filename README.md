@@ -54,9 +54,12 @@ se actualiza automáticamente cuando los archivos cambian en su disco duro.
     ./gradlew
     yarn start
 
-[Yarn][] is also used to manage CSS and JavaScript dependencies used in this application. You can upgrade dependencies by
-specifying a newer version in [package.json](package.json). You can also run `yarn update` and `yarn install` to manage dependencies.
-Add the `help` flag on any command to see how you can use it. For example, `yarn help update`.
+```
+Usuarios por defecto
+Usuario: admin, Contraseña: admin
+Usuario: user, Contraseña: user
+```
+
 [Yarn][] también se usa para administrar las dependencias de CSS y JavaScript utilizadas en esta aplicación. Puede actualizar las dependencias a una versión más nueva en [package.json] (package.json). También puede ejecutar `yarn update` y `yarn install` para gestionar las dependencias.
 Agregue `help` en cualquier comando para ver cómo puede usarlo. Por ejemplo, `yarn help update'.
 
@@ -76,7 +79,7 @@ generará los archivos:
     update src/main/webapp/app/app.module.ts
 
 
-## Building para producción (Apache Tomcat)
+## Building para producción (Apache Tomcat 7)
 
 Para optimizar la aplicación wearplus para producción, ejecute:
 
@@ -87,6 +90,12 @@ Esto miniatizará los archivos CSS y JavaScript del cliente. También modificar�
     java -jar build/libs/*.war
 
 Luego ir hacia [http://localhost:8080](http://localhost:8080) en el navegador.
+
+```
+Usuarios por defecto
+Usuario: admin, Contraseña: admin
+Usuario: user, Contraseña: user
+```
 
 ## Prueba
 
